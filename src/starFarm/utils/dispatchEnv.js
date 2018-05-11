@@ -7,16 +7,16 @@
 *  @params MOCK_PATH {String} Code Context中的接口根路径
 * */
 
-const proConfig = require('../../../config');
+const proConfig = require('../../../config')
 
-const prostatus = process.env.NODE_ENV;
-const DEV = prostatus === 'development';
-const [BASE_PATH, API_PATH, DEV_API_PATH] = [proConfig.basePath, proConfig.api, proConfig.devApi];
-const ASSET_PATH = DEV ? '' : BASE_PATH;
-const MOCK_PATH = DEV ? '/api' : API_PATH;
+const prostatus = process.env.NODE_ENV
+const DEV = prostatus === 'development'
+const [BASE_PATH, API_PATH, DEV_API_PATH] = [proConfig.basePath, proConfig.api, proConfig.devApi]
+const ASSET_PATH = DEV ? '' : BASE_PATH
+const MOCK_PATH = DEV ? '/api' : API_PATH
 
 export {
   ASSET_PATH,
   MOCK_PATH,
   DEV
-};
+}

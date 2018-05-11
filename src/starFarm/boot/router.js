@@ -1,6 +1,6 @@
-import App from '../app';
-import ChargeCarRank from '../pages/chargeCarRank';
-import NoFound from '../pages/notFound';
+import App from '../app'
+import ChargeCarRank from '../pages/chargeCarRank'
+import NoFound from '../pages/notFound'
 
 const proPath = [
   {
@@ -26,6 +26,6 @@ const proPath = [
     path: '*',
     component: NoFound
   }
-];
+]
 
-export default proPath;
+export default proPath

@@ -13,13 +13,13 @@
 </template>
 
 <script type="text/ecmascript-6">
-import loading from './components/feedback/loadingView';
+import loading from './components/feedback/loadingView'
 export default {
-    name: 'app',
-    components: {
-      loading
-    }
-    };
+  name: 'app',
+  components: {
+    loading
+  }
+}
 </script>
 
 <style rel="stylesheet/stylus" lang="stylus">

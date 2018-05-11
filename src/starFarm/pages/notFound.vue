@@ -7,9 +7,9 @@
   </div>
 </template>
 <script type="text/ecmascript-6">
-  export default {
-    name: 'pageLoss'
-  };
+export default {
+  name: 'pageLoss'
+}
 </script>
 <style rel="stylesheet/stylus" lang="stylus">
   @import '../assets/css/mixin.styl';

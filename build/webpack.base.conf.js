@@ -12,7 +12,7 @@ const createLintingRule = () => ({
   test: /\.(js|vue)$/,
   loader: 'eslint-loader',
   enforce: 'pre',
-  include: [resolve('src')],
+  include: [resolve('src'), resolve('test')],
   options: {
     formatter: require('eslint-friendly-formatter'),
     emitWarning: !config.dev.showEslintErrorsInOverlay
@@ -20,6 +20,7 @@ const createLintingRule = () => ({
 })
 
 module.exports = {
+  context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/' + config.projectName + '/main.js'
   },
@@ -35,8 +36,6 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      'PFF': resolve('src/' + config.projectName),
-      '.': resolve('src/' + config.projectName + '/assets/css')
     }
   },
   module: {

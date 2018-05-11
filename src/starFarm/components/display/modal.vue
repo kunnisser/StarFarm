@@ -7,19 +7,19 @@
 </template>
 
 <script type="text/ecmascript-6">
-    export default {
-        name: 'modal',
-        props: {
-          title: {
-            type: String,
-            default: '标题'
-          },
-          open: {
-            type: Boolean,
-            default: !1
-          }
-        }
+export default {
+  name: 'modal',
+  props: {
+    title: {
+      type: String,
+      default: '标题'
+    },
+    open: {
+      type: Boolean,
+      default: !1
     }
+  }
+}
 </script>
 
 <style rel="stylesheet/stylus" lang="stylus">

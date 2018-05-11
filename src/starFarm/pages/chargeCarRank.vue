@@ -27,69 +27,69 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import {getChargeRank} from '../mock/mock';
-  import empty from '../components/other/empty';
-  import scrollList from '../components/scroll/list';
-    export default {
-        name: 'chargeCarRank',
-        data () {
-          return {
-            rankData: null,
-            emptyText: '暂无数据'
-          }
-        },
-        mounted () {
-          this.initMock();
-        },
-        methods: {
-          // 初始化数据
-          initMock () {
-            this.getChargeRank();
-          },
-          // 获取充电排行
-          async getChargeRank () {
-            try {
-              let resData = await getChargeRank({
-                id: '53617f20-4ac7-447d-922f-a501b425346a',
-                type: 0
-              });
-              this.rankData = resData.data.data;
-              for (let r of this.rankData) {
-                r['carSum_clone'] = r.carSum;
-                r.carSum = 0;
-              }
-              this.$nextTick(() => {
-                // 定义图片预加载
-                for (let [index, i] of new Map(this.$refs.thumbs.map((i, index) => [index, i]))) {
-                  i.src = this.rankData[index].carIconUrl;
-                  this.transitionGrow(this.rankData, index);
-                  i.onload = () => {
-                    this.$set(this.rankData[index], 'loaded', !0);
-                  }
-                }
-                this.initialScrollList();
-              });
-            } catch (e) {
-              console.log(e);
-            }
-          },
-          // 定义增长动画
-          transitionGrow (data, index) {
-            this.grow = setTimeout(() => {
-              data[index].carSum = data[index].carSum_clone;
-              clearTimeout(this.grow);
-            }, 400, this);
-          },
-          // 初始化滚动组件
-          initialScrollList () {
-            this.$refs.rankList && this.$refs.rankList._initComponent();
-          }
-      },
-      components: {
-        empty,
-        scrollList
-      }
+import {getChargeRank} from '../mock/mock'
+import empty from '../components/other/empty'
+import scrollList from '../components/scroll/list'
+export default {
+  name: 'chargeCarRank',
+  data () {
+    return {
+      rankData: null,
+      emptyText: '暂无数据'
     }
+  },
+  mounted () {
+    this.initMock()
+  },
+  methods: {
+    // 初始化数据
+    initMock () {
+      this.getChargeRank()
+    },
+    // 获取充电排行
+    async getChargeRank () {
+      try {
+        let resData = await getChargeRank({
+          id: '53617f20-4ac7-447d-922f-a501b425346a',
+          type: 0
+        })
+        this.rankData = resData.data.data
+        for (let r of this.rankData) {
+          r['carSum_clone'] = r.carSum
+          r.carSum = 0
+        }
+        this.$nextTick(() => {
+          // 定义图片预加载
+          for (let [index, i] of new Map(this.$refs.thumbs.map((i, index) => [index, i]))) {
+            i.src = this.rankData[index].carIconUrl
+            this.transitionGrow(this.rankData, index)
+            i.onload = () => {
+              this.$set(this.rankData[index], 'loaded', !0)
+            }
+          }
+          this.initialScrollList()
+        })
+      } catch (e) {
+        console.log(e)
+      }
+    },
+    // 定义增长动画
+    transitionGrow (data, index) {
+      this.grow = setTimeout(() => {
+        data[index].carSum = data[index].carSum_clone
+        clearTimeout(this.grow)
+      }, 400, this)
+    },
+    // 初始化滚动组件
+    initialScrollList () {
+      this.$refs.rankList && this.$refs.rankList._initComponent()
+    }
+  },
+  components: {
+    empty,
+    scrollList
+  }
+}
 </script>
 
 <style rel="stylesheet/stylus" lang="stylus">

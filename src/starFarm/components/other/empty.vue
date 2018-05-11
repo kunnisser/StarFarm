@@ -5,20 +5,20 @@
 </template>
 
 <script type="text/ecmascript-6">
-    export default {
-        name: 'empty',
-        data () {
-          return {
-            showMes: ''
-          }
-        },
-        props: {
-          content: {
-            type: String,
-            default: '空空如野！'
-          }
-        }
+export default {
+  name: 'empty',
+  data () {
+    return {
+      showMes: ''
     }
+  },
+  props: {
+    content: {
+      type: String,
+      default: '空空如野！'
+    }
+  }
+}
 </script>
 
 <style rel="stylesheet/stylus" lang="stylus">
